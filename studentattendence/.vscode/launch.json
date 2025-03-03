@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Java: Launch",
+            "type": "java",
+            "request": "launch",
+            "mainClass": "com.group1.Main",
+            "projectName": "studentattendence",
+            "vmArgs": "--module-path D:\\JavaFX\\javafx-sdk-23.0.2\\lib --add-modules javafx.controls,javafx.fxml,javafx.web"
+        }
+    ]
+}
