@@ -1,0 +1,39 @@
+.sideButton {
+	-fx-background-radius: 25;
+}
+.sideButton:hover {
+	-fx-background-color: #007bff;
+}
+.TopBar{
+	-fx-background-color:#263f73;
+}
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+}
+.card  {
+    
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+    -fx-font-weight: bold;
+}
+
+.card-value {
+    -fx-font-size: 24px;
+    -fx-text-fill: #263f73;
+    -fx-font-weight: bold;
+}
+.tabletext {
+	-fx-font-size: 20px;
+}
+.littletext {
+	-fx-font-size: 20px;
+}

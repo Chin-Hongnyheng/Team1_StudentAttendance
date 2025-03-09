@@ -2,6 +2,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "ConnectionToVS",
+            "request": "launch",
+            "mainClass": "com.group1.ConnectionToVS",
+            "projectName": "studentattendence"
+        },
+        {
+            "type": "java",
+            "name": "Connection",
+            "request": "launch",
+            "mainClass": "com.group1.Connection",
+            "projectName": "studentattendence"
+        },
+        {
             "name": "Java: Launch",
             "type": "java",
             "request": "launch",
