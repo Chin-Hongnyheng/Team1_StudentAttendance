@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Controller">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #263f73;" BorderPane.alignment="CENTER">
          <children>
@@ -62,11 +62,6 @@
                   <Font name="Times New Roman Bold" size="12.0" />
                </font>
             </CheckBox>
-            <Label alignment="CENTER" layoutX="155.0" layoutY="194.0" prefHeight="28.0" prefWidth="108.0" text="Forgot password?" textFill="#1c0ee1">
-               <font>
-                  <Font name="Times New Roman" size="12.0" />
-               </font>
-            </Label>
             <Label alignment="CENTER" layoutX="77.0" layoutY="274.0" prefHeight="28.0" prefWidth="130.0" text="Don't have an Account?">
                <font>
                   <Font name="Times New Roman" size="12.0" />
@@ -87,6 +82,7 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
+            <Button fx:id="forgetpasswordfield" layoutX="165.0" layoutY="199.0" mnemonicParsing="false" onAction="#LoginToForget" style="-fx-background-color: white; -fx-text-fill: #007bff; -fx-font-size: 10; -fx-underline: true;" text="Forget Password?" />
          </children>
       </AnchorPane>
    </right>

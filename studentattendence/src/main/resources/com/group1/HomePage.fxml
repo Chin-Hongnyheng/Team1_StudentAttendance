@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Controller">
+   <top>
+      <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="655.0" layoutY="2.0" prefHeight="59.0" prefWidth="386.0" text="Attendance Record System" textFill="WHITE" AnchorPane.leftAnchor="655.0">
+               <font>
+                  <Font name="Times New Roman" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="958.0" prefWidth="1174.0" style="-fx-background-color: #f5f5f5;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="-46.0" layoutY="-8.0" prefHeight="151.0" prefWidth="1235.0" styleClass="TopBar">
+               <children>
+                  <Label layoutX="96.0" layoutY="22.0" prefHeight="59.0" prefWidth="386.0" text="Welcome Back , username" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="101.0" layoutY="66.0" prefHeight="34.0" prefWidth="256.0" text="We hope you're having a great day" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <HBox layoutX="142.0" layoutY="90.0" prefHeight="45.0" prefWidth="975.0" spacing="50.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <VBox alignment="CENTER" prefHeight="133.0" prefWidth="206.0" styleClass="card">
+                     <children>
+                        <Label styleClass="card-title" text="TOTAL STUDENTS" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-value" text="40" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="115.0" prefWidth="208.0" styleClass="card">
+                     <children>
+                        <Label styleClass="card-title" text="CLASSES TODAY" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-value" text="2" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="115.0" prefWidth="208.0" styleClass="card">
+                     <children>
+                        <Label styleClass="card-title" text="AVG ATTENDANCE RATE" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-value" text="92.5%" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="115.0" prefWidth="208.0" styleClass="card">
+                     <children>
+                        <Label styleClass="card-title" text="TOTAL ABSENTS STUDENT" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-value" text="3" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Home" />
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Course" />
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance" />
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report" />
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule" />
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

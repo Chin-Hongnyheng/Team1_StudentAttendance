@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 
 import java.sql.Statement;
 
+import com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Label;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,6 +60,28 @@ public class Controller {
     @FXML
     private PasswordField verifyfield;
 
+    @FXML
+    private Button forgetpasswordfield;
+
+    // Sign in page
+    @FXML
+    private Button CancelPassword;
+
+    @FXML
+    private Button changepassword;
+
+    @FXML
+    private PasswordField newpassword;
+
+    @FXML
+    private TextField recentemail;
+
+    @FXML
+    private TextField recentusername;
+
+    @FXML
+    private TextField ahjmr;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -80,7 +104,16 @@ public class Controller {
                 && Emailfield.getText().isBlank() == false && verifyfield.getText().isBlank() == false) {
             verifySignin();
         } else {
-            showAlert("Error", "No user input!");
+            showAlert("Error", "Please fill in all fields.");
+        }
+    }
+
+    public void ChangePasswordButtonOnAction(ActionEvent e) {
+        if (recentusername.getText().isBlank() == false && recentemail.getText().isBlank() == false
+                && newpassword.getText().isBlank() == false) {
+            ModifyPassword();
+        } else {
+            showAlert("Error", "Please provide an Input");
         }
     }
 
@@ -126,23 +159,32 @@ public class Controller {
         }
     }
 
-    // public void LoginToHomepage() {
-    // try {
-    // FXMLLoader loader = new FXMLLoader(getClass().getResource("Homepage.fxml"));
-    // Parent loginPage = loader.load();
-    // Stage stage = (Stage) Loginfield.getScene().getWindow();
+    public void LoginToForget(ActionEvent e) throws Exception {
+        root = FXMLLoader.load(getClass().getResource("/com/group1/Forget.fxml"));
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
-    // // Set the scene to the login page
-    // Scene loginScene = new Scene(loginPage);
-    // stage.setScene(loginScene);
+    public void LoginToHomepage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+            Parent HomePage = loader.load();
+            Stage stage = (Stage) passwordfield.getScene().getWindow();
+            HomePage.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
-    // // Show the login page
-    // stage.show();
-    // } catch (IOException e) {
-    // e.printStackTrace();
-    // showAlert("Error", "Failed to load the Home page");
-    // }
-    // }
+            // Set the scene to the login page
+            Scene HomeScene = new Scene(HomePage);
+            stage.setScene(HomeScene);
+
+            // Show the login page
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to load the  Homepage");
+        }
+    }
 
     public void verifyLogin() {
         // Create an object of ConnectionToVS to call the method
@@ -169,8 +211,8 @@ public class Controller {
                 // the resultQUery.getInt will return either 1 or 0 if the condition if match or
                 // not in the single column which is the first index
                 if (resultQuery.getInt(1) == 1) {
-                    // LoginToHomepage();
-                    showAlert("Successful", "Login Successfully");
+                    LoginToHomepage();
+                    // showAlert("Successful", "Login Successfully");
                 } else {
                     showAlert("Error", "Failed to log in");
                 }
@@ -210,6 +252,36 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    // public void TestLoginToSignin(ActionEvent e) throws Exception {
+    // Stage stage = new Stage(); // Create a new stage
+    // TestSignup t = new TestSignup();
+    // t.display(stage); // Call the display method to show UI
+    // }
+
+    public void ModifyPassword() {
+        ConnectionToVS connected = new ConnectionToVS();
+        Connection connectToDB = connected.getConnection();
+
+        String recentUsername = recentusername.getText();
+        String recentEmail = recentemail.getText();
+        String newPassword = newpassword.getText();
+
+        String query = "UPDATE login SET password = '" + newPassword + "' WHERE username = '" + recentUsername
+                + "' AND email = '" + recentEmail + "'";
+        try {
+            Statement statement = connectToDB.createStatement();
+            int rowAffected = statement.executeUpdate(query);
+            if (rowAffected > 0) {
+                showAlert("Successful", "Change password successful");
+            } else {
+                showAlert("Error", "Unable to change password");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
