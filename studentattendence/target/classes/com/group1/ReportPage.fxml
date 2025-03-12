@@ -2,7 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,7 +18,7 @@
    <top>
       <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="655.0" layoutY="2.0" prefHeight="59.0" prefWidth="386.0" text="Attendance Record System" textFill="WHITE" AnchorPane.leftAnchor="655.0">
+            <Label layoutX="752.0" layoutY="2.0" prefHeight="59.0" prefWidth="289.0" text="Attendance Reports" textFill="WHITE" AnchorPane.leftAnchor="752.0">
                <font>
                   <Font name="Times New Roman" size="35.0" />
                </font>
@@ -26,26 +29,13 @@
    <center>
       <AnchorPane prefHeight="958.0" prefWidth="1174.0" style="-fx-background-color: #f5f5f5;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="2.0" layoutY="-16.0" prefHeight="151.0" prefWidth="1354.0" styleClass="TopBar">
-               <children>
-                  <Label layoutX="195.0" layoutY="23.0" prefHeight="59.0" prefWidth="386.0" text="Welcome Back , username" textFill="WHITE">
-                     <font>
-                        <Font name="Times New Roman" size="35.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="195.0" layoutY="65.0" prefHeight="34.0" prefWidth="256.0" text="We hope you're having a great day" textFill="WHITE">
-                     <font>
-                        <Font name="Times New Roman" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <HBox layoutX="193.0" layoutY="83.0" prefHeight="45.0" prefWidth="975.0" spacing="50.0">
+            <AnchorPane layoutX="2.0" layoutY="-16.0" prefHeight="151.0" prefWidth="1354.0" styleClass="TopBar" />
+            <HBox layoutX="223.0" layoutY="267.0" prefHeight="45.0" prefWidth="975.0" spacing="50.0">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
                <children>
-                  <VBox alignment="CENTER" layoutX="193.0" layoutY="83.0" prefHeight="133.0" prefWidth="206.0" styleClass="card">
+                  <VBox alignment="CENTER" layoutX="193.0" layoutY="83.0" prefHeight="86.0" prefWidth="213.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="TOTAL STUDENTS" textAlignment="JUSTIFY" />
                         <Label alignment="TOP_LEFT" styleClass="card-value" text="40" />
@@ -53,28 +43,65 @@
                   </VBox>
                   <VBox alignment="CENTER" layoutX="10.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="CLASSES TODAY" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="2" />
+                        <Label styleClass="card-title" text="Present" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-green" text="75%" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="268.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="AVG ATTENDANCE RATE" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="92.5%" />
+                        <Label styleClass="card-title" text="Late" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-yellow" text="12.5%" />
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" layoutX="526.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
+                  <VBox alignment="CENTER" layoutX="526.0" layoutY="20.0" prefHeight="86.0" prefWidth="221.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="TOTAL ABSENTS STUDENT" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="3" />
+                        <Label styleClass="card-title" text="Absent" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-red" text="12.5%" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="516.0" layoutY="223.0" prefHeight="47.0" prefWidth="188.0" text="Classs of 2025">
-               <font>
-                  <Font name="Times New Roman" size="26.0" />
-               </font></Label>
+            <HBox alignment="CENTER" layoutX="156.0" layoutY="659.0" prefHeight="124.0" prefWidth="924.0" spacing="50.0" />
+            <AnchorPane layoutX="210.0" layoutY="90.0" prefHeight="144.0" prefWidth="1001.0" styleClass="card">
+               <children>
+                  <Label layoutX="394.0" layoutY="19.0" text="Filter Options">
+                     <font>
+                        <Font name="Times New Roman" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="54.0" layoutY="55.0" text="Subject">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="54.0" layoutY="88.0" prefHeight="25.0" prefWidth="238.0" promptText="Programming" />
+                  <Label layoutX="370.0" layoutY="53.0" text="Date">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="370.0" layoutY="86.0" prefHeight="25.0" prefWidth="238.0" promptText="mm/dd/yy" />
+                  <Label layoutX="683.0" layoutY="51.0" text="Attendance Status">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font>
+                  </Label>
+                  <ComboBox layoutX="683.0" layoutY="84.0" prefHeight="25.0" prefWidth="238.0" promptText="Absent Student" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="213.0" layoutY="400.0" prefHeight="544.0" prefWidth="990.0" styleClass="card">
+               <children>
+                  <TableView layoutX="26.0" layoutY="31.0" prefHeight="482.0" prefWidth="949.0">
+                    <columns>
+                      <TableColumn prefWidth="153.33331298828125" text="Student ID" />
+                        <TableColumn prefWidth="188.0" text="Student Name" />
+                        <TableColumn prefWidth="156.6666259765625" text="Subject" />
+                        <TableColumn prefWidth="237.333251953125" text="Status " />
+                        <TableColumn prefWidth="212.66670735677087" text="Note" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
          </children></AnchorPane>
    </center>
    <left>
@@ -122,7 +149,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
+            <Button mnemonicParsing="false" onAction="#ToAttendance" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -130,14 +157,14 @@
                   <Font name="Times New Roman" size="20.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="40.0" onDragDetected="#ToAttendance" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/user-check.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
+            <Button mnemonicParsing="false" onAction="#ToReport" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -152,7 +179,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
+            <Button mnemonicParsing="false" onAction="#ToClassSchedule" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>

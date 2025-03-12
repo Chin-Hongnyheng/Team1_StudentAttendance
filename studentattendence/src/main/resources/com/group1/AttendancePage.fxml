@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -47,34 +49,42 @@
                <children>
                   <VBox alignment="CENTER" layoutX="193.0" layoutY="83.0" prefHeight="133.0" prefWidth="206.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="TOTAL STUDENTS" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="40" />
+                        <Label styleClass="card-title" text="Subject" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-value" text="Programming" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="10.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="CLASSES TODAY" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="2" />
+                        <Label styleClass="card-title" text="Time " textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-value" text="7:00-9:00" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="268.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="AVG ATTENDANCE RATE" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="92.5%" />
+                        <Label styleClass="card-title" text="Date" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-value" text="16-March" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="526.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="TOTAL ABSENTS STUDENT" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="3" />
+                        <Label styleClass="card-title" text="Room" textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" styleClass="card-value" text="A-420" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="516.0" layoutY="223.0" prefHeight="47.0" prefWidth="188.0" text="Classs of 2025">
-               <font>
-                  <Font name="Times New Roman" size="26.0" />
-               </font></Label>
+            <AnchorPane layoutX="191.0" layoutY="224.0" prefHeight="706.0" prefWidth="991.0" styleClass="card">
+               <children>
+                  <TableView layoutX="31.0" layoutY="26.0" prefHeight="665.0" prefWidth="930.0">
+                    <columns>
+                      <TableColumn prefWidth="109.33334350585938" text="Student ID" />
+                      <TableColumn prefWidth="120.66659545898438" text="Student Name" />
+                        <TableColumn prefWidth="68.6666259765625" text="Gender" />
+                        <TableColumn prefWidth="168.66668701171875" text="Status" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
          </children></AnchorPane>
    </center>
    <left>
@@ -122,7 +132,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
+            <Button mnemonicParsing="false" onAction="#ToAttendance" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -137,7 +147,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
+            <Button mnemonicParsing="false" onAction="#ToReport" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -152,7 +162,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
+            <Button mnemonicParsing="false" onAction="#ToClassSchedule" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>

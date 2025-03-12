@@ -71,10 +71,15 @@
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="516.0" layoutY="223.0" prefHeight="47.0" prefWidth="188.0" text="Classs of 2025">
-               <font>
-                  <Font name="Times New Roman" size="26.0" />
-               </font></Label>
+            <AnchorPane layoutX="172.0" layoutY="221.0" prefHeight="707.0" prefWidth="999.0" styleClass="card">
+               <children>
+                  <ImageView fitHeight="646.0" fitWidth="913.0" layoutX="59.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/sava.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children></AnchorPane>
    </center>
    <left>
@@ -122,7 +127,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
+            <Button mnemonicParsing="false" onAction="#ToAttendance" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -137,7 +142,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
+            <Button mnemonicParsing="false" onAction="#ToReport" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -152,7 +157,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
+            <Button mnemonicParsing="false" onAction="#ToClassSchedule" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>

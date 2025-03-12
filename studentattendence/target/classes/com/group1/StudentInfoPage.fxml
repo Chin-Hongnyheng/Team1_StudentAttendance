@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Controller">
    <top>
-      <AnchorPane prefHeight="66.0" prefWidth="1440.0" styleClass="TopBar" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="570.0" layoutY="2.0" prefHeight="59.0" prefWidth="386.0" text="Attendance Record System" textFill="WHITE" AnchorPane.leftAnchor="570.0">
+            <Label layoutX="655.0" layoutY="2.0" prefHeight="59.0" prefWidth="386.0" text="Attendance Record System" textFill="WHITE" AnchorPane.leftAnchor="655.0">
                <font>
                   <Font name="Times New Roman" size="35.0" />
                </font>
@@ -27,14 +26,28 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5f5f5;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="958.0" prefWidth="1174.0" style="-fx-background-color: #f5f5f5;" BorderPane.alignment="CENTER">
          <children>
-            <HBox layoutX="91.0" layoutY="49.0" prefHeight="135.0" prefWidth="999.0" spacing="50.0">
+            <AnchorPane layoutX="-46.0" layoutY="-8.0" prefHeight="151.0" prefWidth="1235.0" styleClass="TopBar">
+               <children>
+                  <Label layoutX="96.0" layoutY="22.0" prefHeight="59.0" prefWidth="386.0" text="Welcome Back , username" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="101.0" layoutY="66.0" prefHeight="34.0" prefWidth="256.0" text="We hope you're having a great day" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <HBox layoutX="142.0" layoutY="90.0" prefHeight="45.0" prefWidth="975.0" spacing="50.0">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
                <children>
-                  <VBox alignment="CENTER" prefHeight="115.0" prefWidth="208.0" styleClass="card">
+                  <VBox alignment="CENTER" prefHeight="133.0" prefWidth="206.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="TOTAL STUDENTS" textAlignment="JUSTIFY" />
                         <Label alignment="TOP_LEFT" styleClass="card-value" text="40" />
@@ -60,30 +73,64 @@
                   </VBox>
                </children>
             </HBox>
-            <VBox layoutX="92.0" layoutY="259.0" prefHeight="645.0" prefWidth="989.0" spacing="15.0" styleClass="card">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
+            <AnchorPane layoutX="34.0" layoutY="252.0" prefHeight="605.0" prefWidth="1124.0" styleClass="card">
                <children>
-                  <TableView id="Table" fx:id="TableView" prefHeight="669.0" prefWidth="959.0" styleClass="tabletext">
+                  <TableView layoutX="26.0" layoutY="24.0" prefHeight="554.0" prefWidth="1074.0">
                     <columns>
-                      <TableColumn id="Class" fx:id="Class" prefWidth="189.77782952785492" styleClass="littletext" text="Class" />
-                        <TableColumn id="Time" fx:id="Time" prefWidth="189.77782952785492" styleClass="littletext" text="Time" />
-                        <TableColumn id="Room" fx:id="Room" prefWidth="189.77782952785492" styleClass="littletext" text="Room" />
-                        <TableColumn id="Students" fx:id="Students" prefWidth="189.77782952785492" styleClass="littletext" text="Students" />
-                        <TableColumn id="Action" prefWidth="189.77782952785492" styleClass="littletext" text="Action" />
+                      <TableColumn fx:id="id" prefWidth="150.00003814697266" styleClass="card-title" text="ID" />
+                      <TableColumn fx:id="Gender" prefWidth="123.77772521972656" styleClass="card-title" text="Gender" />
+                        <TableColumn fx:id="Name" prefWidth="232.88894653320312" styleClass="card-title" text="Name" />
+                        <TableColumn fx:id="Email" minWidth="0.0" prefWidth="272.0" styleClass="card-title" text="Email" />
+                        <TableColumn fx:id="ContactNumber" prefWidth="272.66650390625" styleClass="card-title" text="Contact Number" />
                     </columns>
                   </TableView>
                </children>
-            </VBox>
+            </AnchorPane>
+            <Label layoutX="511.0" layoutY="217.0" text="Student Information List">
+               <font>
+                  <Font name="Times New Roman" size="23.0" />
+               </font>
+            </Label>
+            <HBox layoutX="423.0" layoutY="863.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" />
+            <HBox layoutX="290.0" layoutY="884.0" prefHeight="69.0" prefWidth="725.0" spacing="50.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="208.0" styleClass="sideButton" text="Modify">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/images/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="208.0" styleClass="sideButton" text="Add Student">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="268.0" layoutY="10.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="208.0" styleClass="logout" text="Remove Stundet">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="logout">
+                           <image>
+                              <Image url="@/images/remove.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
          </children></AnchorPane>
    </center>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="725.0" prefWidth="257.0" spacing="30.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
          <children>
             <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#uploadProfile" text="Button">
                <graphic>
-                  <ImageView fx:id="profile" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profile" fitHeight="182.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/images/profile.png" />
                      </image>
@@ -93,20 +140,20 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Button>
-            <Button graphicTextGap="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Home">
+            <Button layoutX="36.0" layoutY="250.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Course">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
-               <graphic>
-                  <FontAwesomeIconView glyphName="HOME" size="40" text="" wrappingWidth="19.23808479309082">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </FontAwesomeIconView>
-               </graphic>
                <font>
                   <Font name="Times New Roman" size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Course">
                <padding>
@@ -146,9 +193,9 @@
                   <Font name="Times New Roman" size="20.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@/images/report.png" />
+                        <Image url="@/images/boldreport.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -163,12 +210,12 @@
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@/images/training.png" />
+                        <Image url="@/images/presentation.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Log out">
+            <Button layoutX="36.0" layoutY="610.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Student Info">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -177,6 +224,21 @@
                </font>
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/images/student-with-graduation-cap.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="logout">
                      <image>
                         <Image url="@/images/logout.png" />
                      </image>

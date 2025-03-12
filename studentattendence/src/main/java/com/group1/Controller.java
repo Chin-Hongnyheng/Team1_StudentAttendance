@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 
 import java.sql.Statement;
 
-import com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Label;
-
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,9 +77,24 @@ public class Controller {
 
     @FXML
     private TextField recentusername;
+    // Homepage
+    @FXML
+    private Button Attendancefield;
 
     @FXML
-    private TextField ahjmr;
+    private Button ClassSchedulefield;
+
+    @FXML
+    private Button Coursefield;
+
+    @FXML
+    private Button Homefield;
+
+    @FXML
+    private Button Reportfield;
+
+    @FXML
+    private ImageView picturefield;
 
     private Stage stage;
     private Scene scene;
@@ -94,6 +108,7 @@ public class Controller {
         alert.showAndWait();
     }
 
+    // Implement action on button
     public void cancelButtonOnAction(ActionEvent e) {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
@@ -125,6 +140,7 @@ public class Controller {
         }
     }
 
+    // Implement loading from one page to another page
     public void LoginToSignin(ActionEvent e) throws Exception {
         root = FXMLLoader.load(getClass().getResource("/com/group1/Signin.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -177,7 +193,8 @@ public class Controller {
             // Set the scene to the login page
             Scene HomeScene = new Scene(HomePage);
             stage.setScene(HomeScene);
-
+            // stage.setResizable(false);
+            stage.setFullScreen(true);
             // Show the login page
             stage.show();
         } catch (IOException e) {
@@ -186,6 +203,42 @@ public class Controller {
         }
     }
 
+    public void ToHomepage(ActionEvent e) throws Exception {
+        root = FXMLLoader.load(getClass().getResource("/com/group1/Homepage.fxml"));
+        scene = ((Node) e.getSource()).getScene();
+        root.getStylesheets().add(getClass().getResource("/com/group1/style.css").toExternalForm());
+        scene.setRoot(root);
+    }
+
+    public void ToCourse(ActionEvent e) throws Exception {
+        root = FXMLLoader.load(getClass().getResource("/com/group1/CoursePage.fxml"));
+        scene = ((Node) e.getSource()).getScene();
+        root.getStylesheets().add(getClass().getResource("/com/group1/style.css").toExternalForm());
+        scene.setRoot(root);
+    }
+
+    public void ToAttendance(ActionEvent e) throws Exception {
+        root = FXMLLoader.load(getClass().getResource("/com/group1/AttendancePage.fxml"));
+        scene = ((Node) e.getSource()).getScene();
+        root.getStylesheets().add(getClass().getResource("/com/group1/style.css").toExternalForm());
+        scene.setRoot(root);
+    }
+
+    public void ToReport(ActionEvent e) throws Exception {
+        root = FXMLLoader.load(getClass().getResource("/com/group1/ReportPage.fxml"));
+        scene = ((Node) e.getSource()).getScene();
+        root.getStylesheets().add(getClass().getResource("/com/group1/style.css").toExternalForm());
+        scene.setRoot(root);
+    }
+
+    public void ToClassSchedule(ActionEvent e) throws Exception {
+        root = FXMLLoader.load(getClass().getResource("/com/group1/ClassSchedulePage.fxml"));
+        scene = ((Node) e.getSource()).getScene();
+        root.getStylesheets().add(getClass().getResource("/com/group1/style.css").toExternalForm());
+        scene.setRoot(root);
+    }
+
+    // Code Logic
     public void verifyLogin() {
         // Create an object of ConnectionToVS to call the method
         // connectDB is a connection object with interact between mysql and VScode
@@ -230,6 +283,10 @@ public class Controller {
         String signinPassword = signinPasswordfield.getText();
         String Email = Emailfield.getText();
         String confirmPassword = verifyfield.getText();
+        if (!Email.endsWith("@gmail.com")) {
+            showAlert("Error", "Email must be a valid Gmail address!");
+            return;
+        }
 
         String query = "INSERT INTO login (username, password, Email) VALUES ('" + signinUsername + "','"
                 + signinPassword + "','" + Email + "')";
@@ -254,12 +311,6 @@ public class Controller {
         }
     }
 
-    // public void TestLoginToSignin(ActionEvent e) throws Exception {
-    // Stage stage = new Stage(); // Create a new stage
-    // TestSignup t = new TestSignup();
-    // t.display(stage); // Call the display method to show UI
-    // }
-
     public void ModifyPassword() {
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectToDB = connected.getConnection();
@@ -267,6 +318,10 @@ public class Controller {
         String recentUsername = recentusername.getText();
         String recentEmail = recentemail.getText();
         String newPassword = newpassword.getText();
+        if (!recentEmail.endsWith("@gmail.com")) {
+            showAlert("Error", "Email must be a valid Gmail address!");
+            return;
+        }
 
         String query = "UPDATE login SET password = '" + newPassword + "' WHERE username = '" + recentUsername
                 + "' AND email = '" + recentEmail + "'";

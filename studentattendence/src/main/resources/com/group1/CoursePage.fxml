@@ -71,10 +71,80 @@
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="516.0" layoutY="223.0" prefHeight="47.0" prefWidth="188.0" text="Classs of 2025">
+            <Label layoutX="586.0" layoutY="200.0" prefHeight="71.0" prefWidth="190.0" text="Course">
                <font>
-                  <Font name="Times New Roman" size="26.0" />
+                  <Font name="Times New Roman" size="64.0" />
                </font></Label>
+            <HBox layoutX="140.0" layoutY="292.0" prefHeight="263.0" prefWidth="975.0" spacing="50.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <VBox alignment="CENTER" minWidth="284.0" prefHeight="243.0" prefWidth="284.0" styleClass="teacher-card">
+                     <children>
+                        <Label prefHeight="53.0" prefWidth="127.0" styleClass="day-text" text="Monday " textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" prefHeight="41.0" prefWidth="206.0" styleClass="time-text" text="Time : 9:10-11:10" />
+                        <Label prefHeight="42.0" prefWidth="140.0" styleClass="date-text" text="Date : 19 jan" textAlignment="JUSTIFY" />
+                        <Label prefHeight="45.0" prefWidth="170.0" styleClass="room-text" text="Room: A-420" textAlignment="JUSTIFY" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="20.0" minWidth="284.0" prefHeight="243.0" prefWidth="284.0" styleClass="teacher-card">
+                     <children>
+                        <Label prefHeight="53.0" prefWidth="127.0" styleClass="day-text" text="Monday " textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" prefHeight="41.0" prefWidth="206.0" styleClass="time-text" text="Time : 9:10-11:10" />
+                        <Label prefHeight="42.0" prefWidth="140.0" styleClass="date-text" text="Date : 19 jan" textAlignment="JUSTIFY" />
+                        <Label prefHeight="45.0" prefWidth="170.0" styleClass="room-text" text="Room: A-420" textAlignment="JUSTIFY" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="380.0" layoutY="20.0" minWidth="284.0" prefHeight="243.0" prefWidth="284.0" styleClass="teacher-card">
+                     <children>
+                        <Label prefHeight="53.0" prefWidth="127.0" styleClass="day-text" text="Monday " textAlignment="JUSTIFY" />
+                        <Label alignment="TOP_LEFT" prefHeight="41.0" prefWidth="206.0" styleClass="time-text" text="Time : 9:10-11:10" />
+                        <Label prefHeight="42.0" prefWidth="140.0" styleClass="date-text" text="Date : 19 jan" textAlignment="JUSTIFY" />
+                        <Label prefHeight="45.0" prefWidth="170.0" styleClass="room-text" text="Room: A-420" textAlignment="JUSTIFY" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="166.0" layoutY="546.0" prefHeight="124.0" prefWidth="924.0" spacing="50.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="258.0" styleClass="sideButton" text="Edit Classes">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Times New Roman" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="319.0" layoutY="41.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="258.0" styleClass="sideButton" text="Add Classes">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/add.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Times New Roman" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="497.0" layoutY="41.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="258.0" styleClass="logout" text="Remove Classes">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="logout">
+                           <image>
+                              <Image url="@image/remove.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Times New Roman" size="21.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
          </children></AnchorPane>
    </center>
    <left>
@@ -122,7 +192,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
+            <Button mnemonicParsing="false" onAction="#ToAttendance" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -137,7 +207,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
+            <Button mnemonicParsing="false" onAction="#ToReport" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -152,7 +222,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
+            <Button mnemonicParsing="false" onAction="#ToClassSchedule" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
