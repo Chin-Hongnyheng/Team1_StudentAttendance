@@ -1,2 +1,4 @@
-com\group1\Controller.class
 com\group1\Main.class
+com\group1\Controller.class
+com\group1\ConnectionToVS.class
+com\group1\StudentDetail.class

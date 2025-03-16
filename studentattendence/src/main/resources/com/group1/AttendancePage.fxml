@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.ControllerV2">
    <top>
       <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
          <children>
@@ -73,22 +73,25 @@
                   </VBox>
                </children>
             </HBox>
-            <AnchorPane layoutX="191.0" layoutY="224.0" prefHeight="706.0" prefWidth="991.0" styleClass="card">
-               <children>
-                  <TableView layoutX="31.0" layoutY="26.0" prefHeight="665.0" prefWidth="930.0">
-                    <columns>
-                      <TableColumn prefWidth="109.33334350585938" text="Student ID" />
-                      <TableColumn prefWidth="120.66659545898438" text="Student Name" />
-                        <TableColumn prefWidth="68.6666259765625" text="Gender" />
-                        <TableColumn prefWidth="168.66668701171875" text="Status" />
-                    </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
+            <TableView fx:id="tablestudent" layoutX="190.0" layoutY="246.0" prefHeight="464.0" prefWidth="993.0">
+              <columns>
+                <TableColumn fx:id="Idcolume" prefWidth="103.46664428710938" text="ID" />
+                <TableColumn fx:id="namecolume" prefWidth="168.5333251953125" text="Name" />
+                  <TableColumn fx:id="gendercolume" prefWidth="66.66656494140625" text="Gender" />
+                  <TableColumn fx:id="emailcolume" prefWidth="159.46661376953125" text="Email" />
+                  <TableColumn fx:id="majorcolume" prefWidth="260.00006103515625" text="Major" />
+                  <TableColumn fx:id="statuscolume" prefWidth="239.199951171875" text="Status" />
+              </columns>
+            </TableView>
+            <Button layoutX="599.0" layoutY="734.0" mnemonicParsing="false" onAction="#saveButtonOnAction" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #28a745;" text="Save" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="24.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
    </center>
    <left>
-      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="leftpane" BorderPane.alignment="CENTER">
          <children>
             <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
                <graphic>

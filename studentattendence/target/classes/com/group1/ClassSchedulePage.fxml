@@ -75,7 +75,7 @@
                <children>
                   <ImageView fitHeight="646.0" fitWidth="913.0" layoutX="59.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/sava.jpg" />
+                        <Image url="@image/sava.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -83,7 +83,7 @@
          </children></AnchorPane>
    </center>
    <left>
-      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="leftpane" BorderPane.alignment="CENTER">
          <children>
             <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
                <graphic>

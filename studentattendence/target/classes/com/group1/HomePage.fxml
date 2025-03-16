@@ -78,7 +78,7 @@
          </children></AnchorPane>
    </center>
    <left>
-      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="leftpane" BorderPane.alignment="CENTER">
          <children>
             <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
                <graphic>

@@ -2,29 +2,35 @@
     -fx-background-radius: 25px;
 }
 
+/* Added default style for sideButton */
+.sideButton {
+    -fx-background-color: linear-gradient(to bottom right, #d9e6f2, #4a76a8); /* Default blue gradient */
+    -fx-text-fill: white; /* White text for contrast */
+}
+
 .sideButton:hover {
-
     -fx-background-color: linear-gradient(to bottom right, #f0f8ff, #5a9bd5); /* Soft white to readable blue */
-
-
 }
+
 .sideButtonLogin:hover {
-
     -fx-background-color: linear-gradient(to bottom right, #f0f8ff, #5a9bd5); /* Soft white to readable blue */
-
-
 }
+
 .sideButtonCourse:hover {
-
     -fx-background-color: linear-gradient(to bottom right, #f0f8ff, #5a9bd5); /* Soft white to readable blue */
-
-
 }
 
+/* Added default style for logout */
+.logout {
+    -fx-background-color: linear-gradient(to bottom right, #ffe6e6, #d4b8b8); /* Soft light red default */
+    -fx-text-fill: #333; /* Dark text for contrast */
+}
 
 .logout:hover {
     -fx-background-color: linear-gradient(to bottom right, #ff6b6b, #d32f2f); /* Lighter red for hover */
+    -fx-text-fill: white; /* White text for contrast when hovering */
 }
+
 .TopBar {
     -fx-background-color: #263f73;
 }
@@ -100,22 +106,26 @@
     -fx-font-size: 22px;
     -fx-background-color: rgba(255, 255, 255, 0.2); /* Subtle translucent background */
     -fx-padding: 8px 16px;
-
     -fx-font-weight: bold;
 }
+
 .card-green {
     -fx-font-size: 24px;
     -fx-text-fill: #4CAF50;
     -fx-font-weight: bold;
 }
+
 .card-yellow {
     -fx-font-size: 24px;
     -fx-text-fill: #FFC107;
     -fx-font-weight: bold;
 }
+
 .card-red {
     -fx-font-size: 24px;
     -fx-text-fill: #F44336;
     -fx-font-weight: bold;
 }
-
+.leftpane{
+    -fx-background-color:#263f73 ;
+}
