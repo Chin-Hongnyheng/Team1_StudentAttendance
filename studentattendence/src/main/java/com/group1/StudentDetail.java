@@ -7,6 +7,18 @@ public class StudentDetail {
     private String email;
     private String major;
     private String status;
+    private String courseid;
+
+    public StudentDetail(String id, String name, String gender, String email,
+            String major, String status, String courseid) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.email = email;
+        this.major = major;
+        this.status = status;
+        this.courseid = courseid;
+    }
 
     public StudentDetail(String id, String name, String gender, String email,
             String major, String status) {
@@ -43,6 +55,10 @@ public class StudentDetail {
         return status;
     }
 
+    public String getCourseId() {
+        return courseid;
+    }
+
     // setter
     public void setId(String id) {
         this.id = id;
@@ -66,5 +82,9 @@ public class StudentDetail {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setCourseId(String courseid) {
+        this.courseid = courseid;
     }
 }
