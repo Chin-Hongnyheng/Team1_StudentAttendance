@@ -1,5 +1,8 @@
 package com.group1;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,11 +21,13 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class ReportController {
@@ -52,6 +57,27 @@ public class ReportController {
     @FXML
     private TableView<StudentDetail> studenttable;
 
+    @FXML
+    private Label todayabsent;
+
+    @FXML
+    private Label todaylate;
+
+    @FXML
+    private Label todaypresented;
+
+    @FXML
+    private Label totalstudents;
+
+    @FXML
+    private Label subject;
+
+    @FXML
+    private Label teacher;
+
+    @FXML
+    private Label date;
+
     private ObservableList<StudentDetail> studentList = FXCollections.observableArrayList();
 
     @FXML
@@ -70,6 +96,28 @@ public class ReportController {
             Image image = new Image(profileImagepath);
             profile.setImage(image);
         }
+
+        Header header = new Header();
+        header.GettingDataToday();
+        header.GettingDataLecturer();
+
+        int TodayTotalStudent = ShareData.TotalStudentToday;
+        int TodayPresented = ShareData.PresentedToday;
+        int TodayLate = ShareData.LateToday;
+        int TodayAbsent = ShareData.AbsentToday;
+
+        totalstudents.setText(String.valueOf(TodayTotalStudent));
+        todaypresented.setText(String.valueOf(TodayPresented));
+        todayabsent.setText(String.valueOf(TodayAbsent));
+        todaylate.setText(String.valueOf(TodayLate));
+
+        String TodaySubject = ShareData.courseName;
+        String TodayLecturer = ShareData.courseLecturer;
+        String TodayDate = ShareData.courseDate;
+
+        subject.setText(TodaySubject);
+        date.setText(TodayDate);
+        teacher.setText("Mr " + TodayLecturer);
     }
 
     private void showAlert(String title, String message) {
@@ -106,6 +154,10 @@ public class ReportController {
     }
 
     public void ToAttendance(ActionEvent e) throws Exception {
+        if (!ShareData.hasVisitCoursePage) {
+            showAlert("Error", "Please visit course page before accessing Attendance");
+            return;
+        }
         LoadPage("AttendancePage.fxml", e);
     }
 
@@ -129,6 +181,7 @@ public class ReportController {
         if (fxmlfile.equals("HomePage.fxml")) {
             HomepageController homepagecontroller = loader.getController();
             homepagecontroller.DisplayName();
+            ;
         } else if (fxmlfile.equals("CoursePage.fxml")) {
             CoursePageController coursecontroller = loader.getController();
             coursecontroller.initialize();
@@ -142,12 +195,47 @@ public class ReportController {
             ReportController reportController = loader.getController();
             reportController.DisplayName();
         }
+
         root.getStylesheets().add(getClass().getResource("/com/group1/style.css").toExternalForm());
         scene.setRoot(root);
     }
 
+    @FXML
+    private void uploadProfile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Profile Image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            try {
+                String targetFolderPath = "src\\main\\resources\\com\\group1\\Profile\\";
+                File targetFolder = new File(targetFolderPath);
+                if (!targetFolder.exists()) {
+                    targetFolder.mkdirs();
+                }
+
+                // Define the target file path
+                File targetFile = new File(targetFolder, selectedFile.getName());
+
+                // Copy the selected file to the target folder
+                Files.copy(selectedFile.toPath(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+                ShareData.profileImagePath = targetFile.toURI().toString();
+
+                // Set the image in the ImageView
+                Image logo = new Image(ShareData.profileImagePath);
+                profile.setImage(logo);
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
     public void GetStudentDataInfo() {
-        String courseId = "C001";
+        String courseId = ShareData.courseId;
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectToDB = connected.getConnection();
 
@@ -159,9 +247,10 @@ public class ReportController {
             String query = "SELECT si.ID, si.Name, si.Gender, si.Email, si.Major, ar.Status " +
                     "FROM studentinfo AS si " +
                     "LEFT JOIN attendancerecord AS ar ON si.ID = ar.id_student " +
-                    "LEFT JOIN courses AS c ON ar.id_course = c.courses_id " +
-                    "WHERE ar.Date = CURDATE()";
+                    "WHERE ar.id_course = ? " +
+                    "AND ar.Date = CURDATE()";
             PreparedStatement statement = connectToDB.prepareStatement(query);
+            statement.setString(1, courseId);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("ID");
@@ -189,6 +278,7 @@ public class ReportController {
     }
 
     public void pieChartData2() {
+        String courseId = ShareData.courseId;
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectToDB = connected.getConnection();
         String TodayDate = java.time.LocalDate.now().toString();
@@ -204,7 +294,7 @@ public class ReportController {
                     "AND Date = CURDATE() " +
                     "GROUP BY Status";
             PreparedStatement statement = connectToDB.prepareStatement(query);
-            statement.setString(1, "C001");
+            statement.setString(1, courseId);
             ResultSet rs = statement.executeQuery();
 
             ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList();
@@ -220,7 +310,7 @@ public class ReportController {
                 data.setName(String.format("%s (%.1f%%)", data.getName(), percentage));
             }
             pChart2.setData(pieData);
-            pChart2.setTitle("Yesterday's Attendance " + TodayDate);
+            pChart2.setTitle("Today's Attendance " + TodayDate);
             applyPieChartColors();
         } catch (Exception e) {
             e.printStackTrace();

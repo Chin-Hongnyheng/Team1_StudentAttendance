@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" styleClass="style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.ClassScheduleController">
    <top>
       <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
          <children>
@@ -28,7 +29,7 @@
          <children>
             <AnchorPane layoutX="2.0" layoutY="-16.0" prefHeight="151.0" prefWidth="1354.0" styleClass="TopBar">
                <children>
-                  <Label layoutX="195.0" layoutY="23.0" prefHeight="59.0" prefWidth="386.0" text="Welcome Back , username" textFill="WHITE">
+                  <Label fx:id="setWelcome" layoutX="195.0" layoutY="23.0" prefHeight="59.0" prefWidth="386.0" textFill="WHITE">
                      <font>
                         <Font name="Times New Roman" size="35.0" />
                      </font>
@@ -40,7 +41,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <HBox layoutX="193.0" layoutY="83.0" prefHeight="45.0" prefWidth="975.0" spacing="50.0">
+            <HBox layoutX="193.0" layoutY="83.0" prefHeight="45.0" prefWidth="975.0" spacing="20.0">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -48,44 +49,82 @@
                   <VBox alignment="CENTER" layoutX="193.0" layoutY="83.0" prefHeight="133.0" prefWidth="206.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="TOTAL STUDENTS" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="40" />
+                        <Label fx:id="totalstudents" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="10.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="CLASSES TODAY" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="2" />
+                        <Label styleClass="card-title" text="TODAY PRESENTED" textAlignment="JUSTIFY" />
+                        <Label fx:id="todaypresented" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="268.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="AVG ATTENDANCE RATE" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="92.5%" />
+                        <Label styleClass="card-title" text="TODAY LATE" textAlignment="JUSTIFY" />
+                        <Label fx:id="todaylate" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="526.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="TOTAL ABSENTS STUDENT" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="3" />
+                        <Label styleClass="card-title" text="TODAY ABSENT" textAlignment="JUSTIFY" />
+                        <Label fx:id="todayabsent" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <AnchorPane layoutX="172.0" layoutY="221.0" prefHeight="707.0" prefWidth="999.0" styleClass="card">
+            <Label layoutX="630.0" layoutY="207.0" prefHeight="47.0" prefWidth="132.0" text="AIECS / SE">
+               <font>
+                  <Font name="Times New Roman" size="26.0" />
+               </font></Label>
+            <HBox layoutX="210.0" layoutY="286.0" prefHeight="235.0" prefWidth="983.0" spacing="30.0">
                <children>
-                  <ImageView fitHeight="646.0" fitWidth="913.0" layoutX="59.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/sava.jpg" />
-                     </image>
-                  </ImageView>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ToMondaySchedule" prefHeight="170.0" prefWidth="330.0" text="Monday">
+                     <styleClass>
+                        <String fx:value="card" />
+                        <String fx:value="teacher-card" />
+                        <String fx:value="day-text" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#ToTuesdaySchedule" prefHeight="170.0" prefWidth="330.0" text="Tuesday">
+                     <styleClass>
+                        <String fx:value="card" />
+                        <String fx:value="teacher-card" />
+                        <String fx:value="day-text" />
+                     </styleClass>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ToWednesdaySchedule" prefHeight="170.0" prefWidth="330.0" text="Wednesday">
+                     <styleClass>
+                        <String fx:value="card" />
+                        <String fx:value="teacher-card" />
+                        <String fx:value="day-text" />
+                     </styleClass>
+                  </Button>
                </children>
-            </AnchorPane>
+            </HBox>
+            <HBox layoutX="380.0" layoutY="533.0" prefHeight="235.0" prefWidth="699.0" spacing="30.0">
+               <children>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ToThursdaySchedule" prefHeight="170.0" prefWidth="330.0" text="Thursday">
+                     <styleClass>
+                        <String fx:value="card" />
+                        <String fx:value="teacher-card" />
+                        <String fx:value="day-text" />
+                     </styleClass>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#ToFridaySchedule" prefHeight="170.0" prefWidth="330.0" text="Friday">
+                     <styleClass>
+                        <String fx:value="card" />
+                        <String fx:value="teacher-card" />
+                        <String fx:value="day-text" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </HBox>
          </children></AnchorPane>
    </center>
    <left>
-      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="leftpane" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="TopBar" BorderPane.alignment="CENTER">
          <children>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#uploadProfile" text="Button">
                <graphic>
                   <ImageView fx:id="profile" fitHeight="182.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -172,7 +211,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
+            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>

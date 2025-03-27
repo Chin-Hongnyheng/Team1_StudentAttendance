@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.AboutUs">
+   <top>
+      <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="655.0" layoutY="2.0" prefHeight="59.0" prefWidth="386.0" text="Attendance Record System" textFill="WHITE" AnchorPane.leftAnchor="655.0">
+               <font>
+                  <Font name="Times New Roman" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="958.0" prefWidth="1174.0" style="-fx-background-color: #f5f5f5;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="2.0" layoutY="-16.0" prefHeight="151.0" prefWidth="1354.0" styleClass="TopBar">
+               <children>
+                  <Label layoutX="195.0" layoutY="23.0" prefHeight="59.0" prefWidth="386.0" text="Developer Information" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="195.0" layoutY="65.0" prefHeight="34.0" prefWidth="276.0" text="Institute of Technology of Cambodia" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <HBox layoutX="193.0" layoutY="83.0" prefHeight="106.0" prefWidth="310.0" spacing="50.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <VBox alignment="CENTER" layoutX="551.0" layoutY="111.0" prefHeight="86.0" prefWidth="300.0" styleClass="card">
+               <children>
+                  <Label styleClass="card-title" text="INFORMATION" textAlignment="JUSTIFY" />
+                  <Label alignment="TOP_LEFT" styleClass="card-value" text="ABOUT US" />
+               </children>
+            </VBox>
+            <Label layoutX="281.0" layoutY="478.0" styleClass="card-value" text="Virak Rith" />
+            <Label layoutX="279.0" layoutY="526.0" styleClass="card-value" />
+            <Label graphicTextGap="0.0" layoutX="288.0" layoutY="516.0" styleClass="card-title" text="Task Management" />
+            <Label graphicTextGap="0.0" layoutX="277.0" layoutY="540.0" styleClass="card-title" text="Attendance Tracking" />
+            <Label graphicTextGap="0.0" layoutX="268.0" layoutY="563.0" styleClass="card-title" text="Testing &amp; Improvement" />
+            <Label layoutX="594.0" layoutY="477.0" styleClass="card-value" text="Chin Hongnyheng" />
+            <Label graphicTextGap="0.0" layoutX="641.0" layoutY="516.0" styleClass="card-title" text="Backend development" />
+            <Label graphicTextGap="0.0" layoutX="607.0" layoutY="539.0" styleClass="card-title" text="Develop and implement Database" />
+            <Label graphicTextGap="0.0" layoutX="651.0" layoutY="562.0" styleClass="card-title" text="Java backend logic" />
+            <Label layoutX="995.0" layoutY="478.0" styleClass="card-value" text="Huoth Sitha" />
+            <Label graphicTextGap="0.0" layoutX="1002.0" layoutY="516.0" styleClass="card-title" text="JavaFX UI/UX Development" />
+            <Label graphicTextGap="0.0" layoutX="967.0" layoutY="538.0" styleClass="card-title" text="Managing FXML files &amp; controllers" />
+            <Label graphicTextGap="0.0" layoutX="1020.0" layoutY="562.0" styleClass="card-title" text="Data validation" />
+            <ImageView fitHeight="211.0" fitWidth="188.0" layoutX="262.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/ahrith.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="211.0" fitWidth="188.0" layoutX="616.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/zin.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="211.0" fitWidth="188.0" layoutX="983.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/mnus.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="135.0" layoutY="635.0" mnemonicParsing="false" onAction="#ToHomepage" prefHeight="45.0" prefWidth="96.0" styleClass="sideButton" text="Back">
+               <font>
+                  <Font name="Times New Roman Bold" size="24.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+   </center>
+   <left>
+      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="TopBar" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
+               <graphic>
+                  <ImageView fx:id="profile" fitHeight="182.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/profile.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="36.0" layoutY="250.0" mnemonicParsing="false" onAction="#ToHomepage" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Home">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ToCourse" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Course">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/learning.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ToAttendance" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/user-check.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ToReport" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/boldreport.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ToClassSchedule" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/presentation.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="logout">
+                     <image>
+                        <Image url="@image/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+</BorderPane>

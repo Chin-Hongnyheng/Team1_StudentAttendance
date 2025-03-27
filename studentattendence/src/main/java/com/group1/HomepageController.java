@@ -10,8 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
-import com.group1.Controller;
-
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,6 +77,18 @@ public class HomepageController {
     @FXML
     private PieChart pChart;
 
+    @FXML
+    private Label totalabsent;
+
+    @FXML
+    private Label totallate;
+
+    @FXML
+    private Label totalpresented;
+
+    @FXML
+    private Label totalstudents;
+
     private ObservableList<StudentDetail> studentList = FXCollections.observableArrayList();
 
     public void initialize() {
@@ -99,6 +109,20 @@ public class HomepageController {
             Image image = new Image(profileImagepath);
             profile.setImage(image);
         }
+
+        Header header = new Header();
+        header.GettingData();
+
+        int totalStudents = ShareData.totalStudents;
+        int studentPresent = ShareData.studentPresent;
+        int studentLate = ShareData.studentLate;
+        int studentAbsent = ShareData.studentAbsent;
+
+        totalstudents.setText(String.valueOf(totalStudents));
+        totalpresented.setText(String.valueOf(studentPresent));
+        totalabsent.setText(String.valueOf(studentAbsent));
+        totallate.setText(String.valueOf(studentLate));
+
     }
 
     @FXML
@@ -156,12 +180,16 @@ public class HomepageController {
 
     }
 
-    public void ToCourse(ActionEvent e) throws Exception {
-        LoadPage("CoursePage.fxml", e);
+    public void ToAttendance(ActionEvent e) throws Exception {
+        if (!ShareData.hasVisitCoursePage) {
+            showAlert("Error", "Please visit course page before accessing Attendance");
+            return;
+        }
+        LoadPage("AttendancePage.fxml", e);
     }
 
-    public void ToAttendance(ActionEvent e) throws Exception {
-        LoadPage("AttendancePage.fxml", e);
+    public void ToCourse(ActionEvent e) throws Exception {
+        LoadPage("CoursePage.fxml", e);
     }
 
     public void ToReport(ActionEvent e) throws Exception {
@@ -170,6 +198,10 @@ public class HomepageController {
 
     public void ToClassSchedule(ActionEvent e) throws Exception {
         LoadPage("ClassSchedulePage.fxml", e);
+    }
+
+    public void ToAboutUsPage(ActionEvent e) throws Exception {
+        LoadPage("AboutUs.fxml", e);
     }
 
     public void LoadPage(String fxmlfile, ActionEvent e) throws Exception {
@@ -197,6 +229,9 @@ public class HomepageController {
         } else if (fxmlfile.equals("ReportPage.fxml")) {
             ReportController reportController = loader.getController();
             reportController.DisplayName();
+        } else if (fxmlfile.equals("AboutUs.fxml")) {
+            AboutUs aboutus = loader.getController();
+            aboutus.initialize();
         }
 
         root.getStylesheets().add(getClass().getResource("/com/group1/style.css").toExternalForm());
@@ -212,7 +247,7 @@ public class HomepageController {
     }
 
     public void GetStudentDataYesterday() {
-        String courseId = "C001";
+        String courseId = ShareData.courseId;
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectToDB = connected.getConnection();
 
@@ -224,9 +259,11 @@ public class HomepageController {
             String query = "SELECT si.ID, si.Name, si.Gender, si.Email, si.Major, ar.Status " +
                     "FROM studentinfo AS si " +
                     "LEFT JOIN attendancerecord AS ar ON si.ID = ar.id_student " +
-                    "LEFT JOIN courses AS c ON ar.id_course = c.courses_id " +
-                    "WHERE ar.Date = CURDATE() - INTERVAL 1 DAY";
+                    "WHERE ar.id_course = ? " +
+                    "AND ar.Date = CURDATE() - INTERVAL 1 DAY";
+
             PreparedStatement statement = connectToDB.prepareStatement(query);
+            statement.setString(1, courseId);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("ID");
@@ -256,6 +293,7 @@ public class HomepageController {
     }
 
     public void LoadStudentData() {
+        String courseId = ShareData.courseId;
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectToDB = connected.getConnection();
 
@@ -281,7 +319,7 @@ public class HomepageController {
                     "GROUP BY Date, Status " +
                     "ORDER BY Date";
             PreparedStatement statement = connectToDB.prepareStatement(query);
-            statement.setString(1, "C001");
+            statement.setString(1, courseId);
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
@@ -334,6 +372,7 @@ public class HomepageController {
     }
 
     public void pieChartData() {
+        String courseId = ShareData.courseId;
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectToDB = connected.getConnection();
         String YestedayDate = java.time.LocalDate.now().minusDays(1).toString();
@@ -349,7 +388,7 @@ public class HomepageController {
                     "AND Date = CURRENT_DATE - INTERVAL 1 DAY " +
                     "GROUP BY Status";
             PreparedStatement statement = connectToDB.prepareStatement(query);
-            statement.setString(1, "C001");
+            statement.setString(1, courseId);
             ResultSet rs = statement.executeQuery();
 
             ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList();
@@ -383,4 +422,5 @@ public class HomepageController {
             }
         }
     }
+
 }

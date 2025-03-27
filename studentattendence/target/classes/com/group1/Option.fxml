@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.OptionController">
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #263f73;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" layoutY="211.0" prefHeight="18.0" prefWidth="226.0" text="Institute of Technology" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" layoutY="238.0" prefHeight="18.0" prefWidth="226.0" text="of Cambodia" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" layoutY="327.0" prefHeight="18.0" prefWidth="226.0" text="Copyright (c). All right reserved" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imagefield" fitHeight="150.0" fitWidth="227.0" layoutX="38.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/itc_logo.png" />
+               </image></ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" layoutY="24.0" prefHeight="28.0" prefWidth="291.0" text="Choose your Course">
+               <font>
+                  <Font name="Times New Roman Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="removestudent" alignment="CENTER" layoutX="59.0" layoutY="66.0" mnemonicParsing="false" onAction="#PDIOnAction" prefHeight="34.0" prefWidth="174.0" style="-fx-background-color: #263f73;" text="PDI" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="removestudent1" alignment="CENTER" layoutX="58.0" layoutY="117.0" mnemonicParsing="false" onAction="#SEOnAction" prefHeight="34.0" prefWidth="174.0" style="-fx-background-color: #263f73;" text="SE" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="removestudent11" alignment="CENTER" layoutX="58.0" layoutY="169.0" mnemonicParsing="false" onAction="#UXAndUIOnAction" prefHeight="34.0" prefWidth="174.0" style="-fx-background-color: #263f73;" text="UX &amp; UI" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="removestudent111" alignment="CENTER" layoutX="59.0" layoutY="223.0" mnemonicParsing="false" onAction="#FCDSOnAction" prefHeight="34.0" prefWidth="174.0" style="-fx-background-color: #263f73;" text="FCDS" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="removestudent1111" alignment="CENTER" layoutX="59.0" layoutY="279.0" mnemonicParsing="false" onAction="#STEMOnAction" prefHeight="34.0" prefWidth="174.0" style="-fx-background-color: #263f73;" text="STEM" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="removestudent11111" alignment="CENTER" layoutX="58.0" layoutY="334.0" mnemonicParsing="false" onAction="#ProjectAndSeminarOnAction" prefHeight="34.0" prefWidth="174.0" style="-fx-background-color: #263f73;" text="Project &amp; Seminar" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

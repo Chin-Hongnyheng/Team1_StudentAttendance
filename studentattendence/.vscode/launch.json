@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Header",
+            "request": "launch",
+            "mainClass": "com.group1.Header",
+            "projectName": "studentattendence"
+        },
+        {
+            "type": "java",
             "name": "ConnectionToVS",
             "request": "launch",
             "mainClass": "com.group1.ConnectionToVS",

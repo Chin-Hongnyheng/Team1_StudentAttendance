@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.RemoveStudent">
    <left>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #263f73;" BorderPane.alignment="CENTER">
          <children>
@@ -50,8 +49,7 @@
                </font>
             </Label>
             <TextField fx:id="removeid" layoutX="27.0" layoutY="95.0" prefHeight="26.0" prefWidth="224.0" promptText="Enter an ID" />
-            <PasswordField fx:id="removename" layoutX="28.0" layoutY="169.0" prefHeight="26.0" prefWidth="224.0" promptText="Enter Name" />
-            <Button fx:id="removestudent" alignment="CENTER" layoutX="26.0" layoutY="292.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="224.0" style="-fx-background-color: #dc3545;" text="Remove" textFill="WHITE">
+            <Button fx:id="removestudent" alignment="CENTER" layoutX="26.0" layoutY="292.0" mnemonicParsing="false" onAction="#RemoveStudentOnAction" prefHeight="33.0" prefWidth="224.0" style="-fx-background-color: #dc3545;" text="Remove" textFill="WHITE">
                <font>
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>
@@ -61,17 +59,18 @@
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="removemajor" layoutX="26.0" layoutY="243.0" prefHeight="26.0" prefWidth="224.0" promptText="Enter Major" />
-            <Label alignment="CENTER" layoutX="-9.0" layoutY="205.0" prefHeight="28.0" prefWidth="108.0" text="Major">
+            <Label alignment="CENTER" layoutX="-9.0" layoutY="205.0" prefHeight="28.0" prefWidth="108.0" text="Email">
                <font>
                   <Font name="Times New Roman Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="cancelremove" alignment="CENTER" layoutX="26.0" layoutY="344.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Cancel" textFill="WHITE">
+            <Button fx:id="cancelremove" alignment="CENTER" layoutX="26.0" layoutY="344.0" mnemonicParsing="false" onAction="#ToAttendance" prefHeight="33.0" prefWidth="224.0" style="-fx-background-color: #263F73;" text="Cancel" textFill="WHITE">
                <font>
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>
             </Button>
+            <TextField fx:id="removename" layoutX="27.0" layoutY="170.0" prefHeight="26.0" prefWidth="224.0" promptText="Enter Name" />
+            <TextField fx:id="removeemail" layoutX="27.0" layoutY="244.0" prefHeight="26.0" prefWidth="224.0" promptText="Enter an Email" />
          </children>
       </AnchorPane>
    </right>

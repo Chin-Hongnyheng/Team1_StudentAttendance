@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.HomepageController">
    <top>
       <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
          <children>
@@ -28,7 +34,7 @@
          <children>
             <AnchorPane layoutX="2.0" layoutY="-16.0" prefHeight="151.0" prefWidth="1354.0" styleClass="TopBar">
                <children>
-                  <Label layoutX="195.0" layoutY="23.0" prefHeight="59.0" prefWidth="386.0" text="Welcome Back , username" textFill="WHITE">
+                  <Label fx:id="setWelcome" layoutX="195.0" layoutY="23.0" prefHeight="59.0" prefWidth="386.0" textFill="WHITE">
                      <font>
                         <Font name="Times New Roman" size="35.0" />
                      </font>
@@ -38,6 +44,11 @@
                         <Font name="Times New Roman" size="18.0" />
                      </font>
                   </Label>
+                  <Button layoutX="1077.0" layoutY="40.0" mnemonicParsing="false" onAction="#ToAboutUsPage" prefHeight="50.0" prefWidth="160.0" styleClass="sideButton" text="About Us">
+                     <font>
+                        <Font name="Times New Roman Bold" size="24.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
             <HBox layoutX="193.0" layoutY="83.0" prefHeight="45.0" prefWidth="975.0" spacing="50.0">
@@ -48,39 +59,59 @@
                   <VBox alignment="CENTER" layoutX="193.0" layoutY="83.0" prefHeight="133.0" prefWidth="206.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="TOTAL STUDENTS" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="40" />
+                        <Label fx:id="totalstudents" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="10.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="CLASSES TODAY" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="2" />
+                        <Label styleClass="card-title" text="YESTERDAY PRESENTED" textAlignment="JUSTIFY" />
+                        <Label fx:id="totalpresented" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="268.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="AVG ATTENDANCE RATE" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="92.5%" />
+                        <Label styleClass="card-title" text="YESTERDAY LATE" textAlignment="JUSTIFY" />
+                        <Label fx:id="totallate" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="526.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
-                        <Label styleClass="card-title" text="TOTAL ABSENTS STUDENT" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="3" />
+                        <Label styleClass="card-title" text="YESTERDAY ABSENT" textAlignment="JUSTIFY" />
+                        <Label fx:id="totalabsent" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="516.0" layoutY="223.0" prefHeight="47.0" prefWidth="188.0" text="Classs of 2025">
+            <TableView fx:id="studenttable2" layoutX="81.0" layoutY="224.0" prefHeight="523.0" prefWidth="754.0">
+              <columns>
+                <TableColumn fx:id="idcolumn2" prefWidth="96.80001831054688" text="ID" />
+                <TableColumn fx:id="namecolumn2" prefWidth="169.59994506835938" text="Name" />
+                  <TableColumn fx:id="gendercolumn2" prefWidth="52.800048828125" text="Gender" />
+                  <TableColumn fx:id="emailcolumn2" prefWidth="156.80001831054688" text="Email" />
+                  <TableColumn fx:id="majorcolumn2" prefWidth="204.800048828125" text="Major" />
+                  <TableColumn fx:id="statuscolumn2" prefWidth="73.5999755859375" text="Status" />
+              </columns>
+            </TableView>
+            <BarChart fx:id="barChart" layoutX="830.0" layoutY="186.0">
+              <xAxis>
+                <CategoryAxis fx:id="Xaxis" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="Yaxis" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <PieChart fx:id="pChart" layoutX="930.0" layoutY="595.0" prefHeight="244.0" prefWidth="339.0" />
+            <Label layoutX="98.0" layoutY="196.0" text="Yesterday Attendance">
                <font>
-                  <Font name="Times New Roman" size="26.0" />
-               </font></Label>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </center>
    <left>
       <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="leftpane" BorderPane.alignment="CENTER">
          <children>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#uploadProfile" text="Button">
                <graphic>
                   <ImageView fx:id="profile" fitHeight="182.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -122,7 +153,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
+            <Button mnemonicParsing="false" onAction="#ToAttendance" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -137,7 +168,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
+            <Button mnemonicParsing="false" onAction="#ToReport" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -152,7 +183,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
+            <Button mnemonicParsing="false" onAction="#ToClassSchedule" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -167,7 +198,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
+            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>

@@ -1,5 +1,8 @@
 package com.group1;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,6 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class AttendanceController {
@@ -53,6 +57,15 @@ public class AttendanceController {
     @FXML
     private ImageView profile;
 
+    @FXML
+    private Label subject;
+
+    @FXML
+    private Label teacher;
+
+    @FXML
+    private Label date;
+
     private ObservableList<StudentDetail> studentList = FXCollections.observableArrayList();
 
     private Stage stage;
@@ -77,6 +90,15 @@ public class AttendanceController {
             Image image = new Image(profileImagepath);
             profile.setImage(image);
         }
+        Header head = new Header();
+        head.GettingDataLecturer();
+        String TodaySubject = ShareData.courseName;
+        String TodayLecturer = ShareData.courseLecturer;
+        String TodayDate = ShareData.courseDate;
+
+        subject.setText(TodaySubject);
+        date.setText(TodayDate);
+        teacher.setText("Mr " + TodayLecturer);
     }
 
     @FXML
@@ -105,6 +127,10 @@ public class AttendanceController {
     }
 
     public void ToAttendance(ActionEvent e) throws Exception {
+        if (!ShareData.hasVisitCoursePage) {
+            showAlert("Error", "Please visit course page before accessing Attendance");
+            return;
+        }
         LoadPage("AttendancePage.fxml", e);
     }
 
@@ -145,6 +171,40 @@ public class AttendanceController {
         scene.setRoot(root);
     }
 
+    @FXML
+    private void uploadProfile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Profile Image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            try {
+                String targetFolderPath = "src\\main\\resources\\com\\group1\\Profile\\";
+                File targetFolder = new File(targetFolderPath);
+                if (!targetFolder.exists()) {
+                    targetFolder.mkdirs();
+                }
+
+                // Define the target file path
+                File targetFile = new File(targetFolder, selectedFile.getName());
+
+                // Copy the selected file to the target folder
+                Files.copy(selectedFile.toPath(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+                ShareData.profileImagePath = targetFile.toURI().toString();
+
+                // Set the image in the ImageView
+                Image logo = new Image(ShareData.profileImagePath);
+                profile.setImage(logo);
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -154,7 +214,7 @@ public class AttendanceController {
     }
 
     public void GetStudentData() {
-        String courseId = "C001";
+        String courseId = ShareData.courseId;
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectToDB = connected.getConnection();
 
@@ -163,16 +223,12 @@ public class AttendanceController {
             return;
         }
         try {
-            String query = "SELECT si.ID, si.Name, si.Gender, si.Email, si.Major, " +
-                    "CASE " +
-                    "WHEN ar.Status IS NULL THEN NULL " +
-                    "ELSE NULL " +
-                    "END AS Status " +
+            String query = "SELECT DISTINCT si.ID, si.Name, si.Gender, si.Email, si.Major, si.Status " +
                     "FROM studentinfo AS si " +
                     "LEFT JOIN attendancerecord AS ar ON si.ID = ar.id_student " +
-                    "LEFT JOIN courses AS c ON ar.id_course = c.courses_id " +
-                    "WHERE ar.id_student IS NULL OR ar.Date = CURDATE() - INTERVAL 1 DAY";
+                    "AND ar.id_course = ? ";
             PreparedStatement statement = connectToDB.prepareStatement(query);
+            statement.setString(1, courseId);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 String id = rs.getString("ID");
@@ -271,7 +327,7 @@ public class AttendanceController {
 
         for (StudentDetail student : studentList) {
             // Check if attendance for today already exists
-            if (isAttendanceRecorded(student.getId(), todayDate)) {
+            if (isAttendanceRecorded(student.getId(), student.getCourseId(), todayDate)) {
                 showAlert("Error", "Student have been recorded already");
                 return;// Skip saving for this student
             }
@@ -282,7 +338,7 @@ public class AttendanceController {
         showAlert("Success", "All Attendance records saved.");
     }
 
-    private boolean isAttendanceRecorded(String idStudent, String date) {
+    private boolean isAttendanceRecorded(String idStudent, String courseId, String date) {
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectToDB = connected.getConnection();
 
@@ -291,20 +347,44 @@ public class AttendanceController {
             return false;
         }
 
-        String query = "SELECT COUNT(*) FROM attendancerecord WHERE id_student = ? AND Date = ?";
+        String query = "SELECT COUNT(*) FROM attendancerecord WHERE id_student = ? AND id_course = ? AND Date = ?";
         try (PreparedStatement statement = connectToDB.prepareStatement(query)) {
             statement.setString(1, idStudent);
-            statement.setString(2, date);
+            statement.setString(2, courseId);
+            statement.setString(3, date);
 
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
+                // if count == 1 it mean the attendance exist
                 int count = rs.getInt(1);
-                return count > 0; // If count > 0, attendance already exists
+                return count > 0;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return false;
+    }
+
+    public void AddStudentOnAction(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddStudent.fxml"));
+        root = loader.load();
+
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("image\\itc_logo.png")));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void RemoveStudentOnAction(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RemoveStudent.fxml"));
+        root = loader.load();
+
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("image\\itc_logo.png")));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

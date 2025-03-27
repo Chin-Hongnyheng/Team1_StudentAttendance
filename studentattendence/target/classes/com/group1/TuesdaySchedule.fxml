@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Tuesday">
+   <top>
+      <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="655.0" layoutY="2.0" prefHeight="59.0" prefWidth="386.0" text="Attendance Record System" textFill="WHITE" AnchorPane.leftAnchor="655.0">
+               <font>
+                  <Font name="Times New Roman" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="958.0" prefWidth="1174.0" style="-fx-background-color: #f5f5f5;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="2.0" layoutY="-16.0" prefHeight="151.0" prefWidth="1354.0" styleClass="TopBar">
+               <children>
+                  <Label fx:id="setWelcome" layoutX="195.0" layoutY="23.0" prefHeight="59.0" prefWidth="386.0" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="195.0" layoutY="65.0" prefHeight="34.0" prefWidth="256.0" text="We hope you're having a great day" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <HBox layoutX="193.0" layoutY="83.0" prefHeight="45.0" prefWidth="975.0" spacing="50.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <VBox alignment="CENTER" layoutX="193.0" layoutY="83.0" prefHeight="133.0" prefWidth="206.0" styleClass="card">
+                     <children>
+                        <Label styleClass="card-title" text="TOTAL STUDENTS" textAlignment="JUSTIFY" />
+                        <Label fx:id="totalstudents" alignment="TOP_LEFT" styleClass="card-value" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
+                     <children>
+                        <Label styleClass="card-title" text="TODAY PRESENTED" textAlignment="JUSTIFY" />
+                        <Label fx:id="todaypresented" alignment="TOP_LEFT" styleClass="card-value" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="268.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
+                     <children>
+                        <Label styleClass="card-title" text="TODAY LATE" textAlignment="JUSTIFY" />
+                        <Label fx:id="todaylate" alignment="TOP_LEFT" styleClass="card-value" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="526.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
+                     <children>
+                        <Label styleClass="card-title" text="TODAY ABSENT" textAlignment="JUSTIFY" />
+                        <Label fx:id="todayabsent" alignment="TOP_LEFT" styleClass="card-value" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="530.0" layoutY="162.0" prefHeight="73.0" prefWidth="373.0" styleClass="card-value" text="TUESDAY" />
+            <HBox layoutX="249.0" layoutY="224.0" prefHeight="552.0" prefWidth="1018.0" spacing="100.0">
+               <children>
+                  <AnchorPane prefHeight="614.0" prefWidth="457.0" styleClass="teacher-card">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="101.0" layoutY="-9.0" prefHeight="73.0" prefWidth="373.0" styleClass="day-text" text=" AIECS" />
+                        <Label layoutX="28.0" layoutY="57.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="7:00-7:55" />
+                        <Label layoutX="28.0" layoutY="110.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="8:00-8:55" />
+                        <Label layoutX="28.0" layoutY="163.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="9:00-10:05" />
+                        <Label layoutX="28.0" layoutY="216.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="10:10-11:05" />
+                        <Label layoutX="28.0" layoutY="300.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="13:00-13:55" />
+                        <Label layoutX="28.0" layoutY="353.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="14:00-14:55" />
+                        <Label alignment="CENTER" layoutX="184.0" layoutY="439.0" prefHeight="23.0" prefWidth="202.0" styleClass="TeacherName-text" text="Room A-420" textAlignment="CENTER" wrapText="true" />
+                        <Label layoutX="28.0" layoutY="406.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="15:00-16:05" />
+                        <Label alignment="CENTER" layoutX="212.0" layoutY="396.0" prefHeight="49.0" prefWidth="175.0" styleClass="subject-text" text="Programming design and implementation" textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="211.0" layoutY="428.0" prefHeight="0.0" prefWidth="173.0" styleClass="TeacherName-text" text="Mr BOU Channa" textAlignment="CENTER" wrapText="true" />
+                        <Label layoutX="28.0" layoutY="459.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="16:10-17:05" />
+                        <Label alignment="CENTER" layoutX="212.0" layoutY="449.0" prefHeight="49.0" prefWidth="175.0" styleClass="subject-text" text="Programming design and implementation" textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="211.0" layoutY="481.0" prefHeight="0.0" prefWidth="173.0" styleClass="TeacherName-text" text="Mr BOU Channa" textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="190.0" layoutY="493.0" prefHeight="23.0" prefWidth="192.0" styleClass="TeacherName-text" text="Room A-420" textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="-126.0" layoutY="-9.0" prefHeight="73.0" prefWidth="373.0" styleClass="day-text" text="Time" />
+                        <Button layoutX="-154.0" mnemonicParsing="false" onAction="#ToClassSchedule" prefHeight="50.0" prefWidth="130.0" styleClass="sideButton" text="Back">
+                           <font>
+                              <Font name="Times New Roman Bold" size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="644.0" prefWidth="457.0" styleClass="teacher-card">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="101.0" layoutY="-9.0" prefHeight="73.0" prefWidth="373.0" styleClass="day-text" text="SE" />
+                        <Label layoutX="28.0" layoutY="57.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="7:00-7:55" />
+                        <Label layoutX="28.0" layoutY="110.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="8:00-8:55" />
+                        <Label layoutX="28.0" layoutY="163.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="9:00-10:05" />
+                        <Label layoutX="28.0" layoutY="216.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="10:10-11:05" />
+                        <Label layoutX="28.0" layoutY="300.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="13:00-13:55" />
+                        <Label alignment="CENTER" layoutX="213.0" layoutY="290.0" prefHeight="49.0" prefWidth="175.0" styleClass="subject-text" text="Programming design and implementation" textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="212.0" layoutY="322.0" prefHeight="0.0" prefWidth="173.0" styleClass="TeacherName-text" text="Mr BOU Channa" textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="200.0" layoutY="335.0" prefHeight="19.0" prefWidth="174.0" styleClass="TeacherName-text" text="Room A-420" textAlignment="CENTER" wrapText="true" />
+                        <Label layoutX="28.0" layoutY="353.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="14:00-14:55" />
+                        <Label alignment="CENTER" layoutX="213.0" layoutY="341.0" prefHeight="49.0" prefWidth="175.0" styleClass="subject-text" text="Programming design and implementation" textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="212.0" layoutY="375.0" prefHeight="0.0" prefWidth="173.0" styleClass="TeacherName-text" text="Mr BOU Channa" textAlignment="CENTER" wrapText="true" />
+                        <Label alignment="CENTER" layoutX="201.0" layoutY="388.0" prefHeight="14.0" prefWidth="173.0" styleClass="TeacherName-text" text="Room A-420" textAlignment="CENTER" wrapText="true" />
+                        <Label layoutX="28.0" layoutY="406.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="15:00-16:05" />
+                        <Label layoutX="28.0" layoutY="459.0" prefHeight="54.0" prefWidth="404.0" styleClass="time-text" text="16:10-17:05" />
+                        <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="-126.0" layoutY="-9.0" prefHeight="73.0" prefWidth="373.0" styleClass="day-text" text="Time" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children></AnchorPane>
+   </center>
+   <left>
+      <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="TopBar" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
+               <graphic>
+                  <ImageView fx:id="profile" fitHeight="182.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/profile.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="36.0" layoutY="250.0" mnemonicParsing="false" onAction="#ToHomepage" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Home">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ToCourse" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Course">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/learning.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ToAttendance" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Attendance ">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/user-check.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ToReport" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Report">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/boldreport.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#ToClassSchedule" prefHeight="60.0" prefWidth="200.0" styleClass="sideButton" text="Class Schedule">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/presentation.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Times New Roman" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="logout">
+                     <image>
+                        <Image url="@image/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+</BorderPane>

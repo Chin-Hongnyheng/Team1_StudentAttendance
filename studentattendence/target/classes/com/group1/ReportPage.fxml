@@ -2,8 +2,8 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.ReportController">
    <top>
       <AnchorPane prefHeight="66.0" prefWidth="1505.0" styleClass="TopBar" BorderPane.alignment="CENTER">
          <children>
@@ -39,25 +39,25 @@
                   <VBox alignment="CENTER" layoutX="193.0" layoutY="83.0" prefHeight="86.0" prefWidth="213.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="TOTAL STUDENTS" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-value" text="40" />
+                        <Label fx:id="totalstudents" alignment="TOP_LEFT" styleClass="card-value" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="10.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="Present" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-green" text="75%" />
+                        <Label fx:id="todaypresented" alignment="TOP_LEFT" styleClass="card-green" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="268.0" layoutY="20.0" prefHeight="115.0" prefWidth="208.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="Late" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-yellow" text="12.5%" />
+                        <Label fx:id="todaylate" alignment="TOP_LEFT" styleClass="card-yellow" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="526.0" layoutY="20.0" prefHeight="86.0" prefWidth="221.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="Absent" textAlignment="JUSTIFY" />
-                        <Label alignment="TOP_LEFT" styleClass="card-red" text="12.5%" />
+                        <Label fx:id="todayabsent" alignment="TOP_LEFT" styleClass="card-red" />
                      </children>
                   </VBox>
                </children>
@@ -75,37 +75,47 @@
                         <Font name="Times New Roman" size="24.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="54.0" layoutY="88.0" prefHeight="25.0" prefWidth="238.0" promptText="Programming" />
                   <Label layoutX="370.0" layoutY="53.0" text="Date">
                      <font>
                         <Font name="Times New Roman" size="24.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="370.0" layoutY="86.0" prefHeight="25.0" prefWidth="238.0" promptText="mm/dd/yy" />
-                  <Label layoutX="683.0" layoutY="51.0" text="Attendance Status">
+                  <Label layoutX="683.0" layoutY="51.0" text="Taught by">
                      <font>
                         <Font name="Times New Roman" size="24.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutX="683.0" layoutY="84.0" prefHeight="25.0" prefWidth="238.0" promptText="Absent Student" />
+                  <Label fx:id="subject" layoutX="26.0" layoutY="91.0" prefHeight="30.0" prefWidth="331.0">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font></Label>
+                  <Label fx:id="date" layoutX="370.0" layoutY="86.0" prefHeight="30.0" prefWidth="198.0">
+                     <font>
+                        <Font name="Times New Roman Bold" size="24.0" />
+                     </font></Label>
+                  <Label fx:id="teacher" layoutX="683.0" layoutY="84.0" prefHeight="30.0" prefWidth="215.0">
+                     <font>
+                        <Font name="Times New Roman" size="24.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
-            <TableView fx:id="tablestudent2" layoutX="184.0" layoutY="311.0" prefHeight="413.0" prefWidth="1002.0">
+            <TableView fx:id="studenttable" layoutX="86.0" layoutY="311.0" prefHeight="430.0" prefWidth="815.0">
               <columns>
-                <TableColumn fx:id="idcolumn2" prefWidth="125.33334350585938" text="ID" />
-                <TableColumn fx:id="namecolumn2" prefWidth="157.066650390625" text="Name" />
-                  <TableColumn fx:id="gendercolumn2" prefWidth="48.7999267578125" text="Gender" />
-                  <TableColumn fx:id="emailcolumn2" prefWidth="157.066650390625" text="Email" />
-                  <TableColumn fx:id="majorcolumn2" prefWidth="224.0" text="Major" />
-                  <TableColumn fx:id="statuscolumn2" prefWidth="292.53326416015625" text="Status" />
+                <TableColumn fx:id="columnid" prefWidth="125.33334350585938" text="ID" />
+                <TableColumn fx:id="columnname" prefWidth="157.066650390625" text="Name" />
+                  <TableColumn fx:id="columngender" prefWidth="48.7999267578125" text="Gender" />
+                  <TableColumn fx:id="columnemail" prefWidth="157.066650390625" text="Email" />
+                  <TableColumn fx:id="columnmajor" prefWidth="224.0" text="Major" />
+                  <TableColumn fx:id="columnstatus" prefWidth="99.73345947265625" text="Status" />
               </columns>
             </TableView>
+            <PieChart fx:id="pChart2" layoutX="934.0" layoutY="347.0" prefHeight="357.0" prefWidth="398.0" />
          </children></AnchorPane>
    </center>
    <left>
       <VBox alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="1094.0" prefWidth="252.0" spacing="30.0" styleClass="leftpane" BorderPane.alignment="CENTER">
          <children>
-            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button">
+            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#uploadProfile" text="Button">
                <graphic>
                   <ImageView fx:id="profile" fitHeight="182.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -196,7 +206,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
+            <Button layoutX="39.0" layoutY="639.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="60.0" prefWidth="200.0" styleClass="logout" text="Log out">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>

@@ -1,0 +1,134 @@
+.sideButton, .logout {
+    -fx-background-radius: 25px;
+}
+
+.sideButton:hover {
+
+    -fx-background-color: linear-gradient(to bottom right, #f0f8ff, #5a9bd5); /* Soft white to readable blue */
+
+
+}
+.sideButtonLogin:hover {
+
+    -fx-background-color: linear-gradient(to bottom right, #f0f8ff, #5a9bd5); /* Soft white to readable blue */
+
+
+}
+.sideButtonCourse:hover {
+
+    -fx-background-color: linear-gradient(to bottom right, #f0f8ff, #5a9bd5); /* Soft white to readable blue */
+
+
+}
+
+
+.logout:hover {
+    -fx-background-color: linear-gradient(to bottom right, #ff6b6b, #d32f2f); /* Lighter red for hover */
+}
+.TopBar {
+    -fx-background-color: #263f73;
+}
+
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+    -fx-font-weight: bold;
+}
+
+.card-value {
+    -fx-font-size: 24px;
+    -fx-text-fill: #263f73;
+    -fx-font-weight: bold;
+}
+
+.tabletext, .littletext {
+    -fx-font-size: 20px;
+}
+
+.textName:hover {
+    -fx-background-color: #008AB7;
+}
+
+/* Teacher Card */
+.teacher-card {
+    -fx-background-color: linear-gradient(to bottom right, #1e3a5f, #4a76a8); /* Deeper blue gradient */
+    -fx-padding: 30px; /* More spacious layout */
+    -fx-background-radius: 18px;
+    -fx-border-radius: 18px;
+    -fx-border-color: rgba(255, 255, 255, 0.3); /* Softer border */
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.4, 3, 3); /* Softer shadow */
+    -fx-min-width: 320px; /* Slightly wider */
+    -fx-min-height: 200px; /* Slightly taller */
+    -fx-alignment: center;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.teacher-card:hover {
+    -fx-background-color: linear-gradient(to bottom right, #f0f8ff, #5a9bd5); /* Soft white to readable blue */
+}
+
+/* Text Styling */
+.date-text, .day-text, .time-text, .room-text {
+    -fx-font-family: "Times New Roman";
+    -fx-text-fill: #ffffff; /* High contrast */
+}
+
+/* Date & Day */
+.date-text {
+    -fx-font-size: 24px; /* Slightly larger */
+    -fx-font-weight: bold;
+    -fx-padding: 6px 0;
+}
+
+.day-text {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 0;
+}
+
+/* Time & Room */
+.time-text, .room-text {
+    -fx-font-size: 10px;
+    -fx-background-color: rgba(255, 255, 255, 0.2); /* Subtle translucent background */
+    
+    -fx-font-weight: bold;
+}
+.card-green {
+    -fx-font-size: 24px;
+    -fx-text-fill: #4CAF50;
+    -fx-font-weight: bold;
+}
+.card-yellow {
+    -fx-font-size: 24px;
+    -fx-text-fill: #FFC107;
+    -fx-font-weight: bold;
+}
+.card-red {
+    -fx-font-size: 24px;
+    -fx-text-fill: #F44336;
+    -fx-font-weight: bold;
+}
+.subject-text {
+	-fx-font-family: "Times New Roman";
+    -fx-font-size: 10px; /* Slightly larger */
+    -fx-font-weight: bold;
+    -fx-padding: 6px 0;
+    -fx-text-fill: #FFFFFF;
+}
+.TeacherName-text{
+	-fx-font-family: "Times New Roman";
+    -fx-font-size: 10px; /* Slightly larger */
+    -fx-padding: 6px 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+

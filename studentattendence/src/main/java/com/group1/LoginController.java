@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import com.group1.Controller.UserProfile;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -68,17 +68,13 @@ public class LoginController {
             String username = usernamefield.getText();
 
             ShareData.username = username;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Option.fxml"));
             root = loader.load();
-            root.getStylesheets().add(getClass().getResource("/com/group1/style.css").toExternalForm());
-
-            HomepageController homepagecontroller = loader.getController();
-            homepagecontroller.DisplayName();
 
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("image\\itc_logo.png")));
             scene = new Scene(root);
             stage.setScene(scene);
-            stage.setFullScreen(true);
             stage.show();
         } else {
             showAlert("Error", "No user input!");
@@ -89,6 +85,7 @@ public class LoginController {
     public void LoginToSignin(ActionEvent e) throws Exception {
         root = FXMLLoader.load(getClass().getResource("/com/group1/Signin.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("image\\itc_logo.png")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -97,6 +94,7 @@ public class LoginController {
     public void LoginToForget(ActionEvent e) throws Exception {
         root = FXMLLoader.load(getClass().getResource("/com/group1/Forget.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("image\\itc_logo.png")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
