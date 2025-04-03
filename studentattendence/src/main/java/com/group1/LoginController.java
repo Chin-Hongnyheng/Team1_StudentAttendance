@@ -64,18 +64,21 @@ public class LoginController {
 
     public void loginButtonOnAction(ActionEvent e) throws Exception {
         if (usernamefield.getText().isBlank() == false && passwordfield.getText().isBlank() == false) {
-            verifyLogin();
-            String username = usernamefield.getText();
+            if (verifyLogin()) {
+                String username = usernamefield.getText();
 
-            ShareData.username = username;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Option.fxml"));
-            root = loader.load();
+                ShareData.username = username;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Option.fxml"));
+                root = loader.load();
 
-            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("image\\itc_logo.png")));
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+                stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.getIcons().add(new Image(getClass().getResourceAsStream("image\\itc_logo.png")));
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                showAlert("Error", "Incorrect username or password! Please try again.");
+            }
         } else {
             showAlert("Error", "No user input!");
         }
@@ -101,7 +104,7 @@ public class LoginController {
     }
 
     // Code Logic
-    public void verifyLogin() {
+    public boolean verifyLogin() {
         ConnectionToVS connected = new ConnectionToVS();
         Connection connectDB = connected.getConnection();
 
@@ -116,13 +119,12 @@ public class LoginController {
 
             while (resultQuery.next()) {
                 if (resultQuery.getInt(1) == 1) {
-                } else {
-                    showAlert("Error", "Failed to log in");
+                    return true;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
-
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.SigninController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group1.SignupController">
    <right>
       <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #263f73;" BorderPane.alignment="CENTER">
          <children>
@@ -40,7 +40,7 @@
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="288.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="95.0" layoutY="12.0" text="Sign in">
+            <Label layoutX="95.0" layoutY="12.0" text="Sign up">
                <font>
                   <Font name="Times New Roman Bold" size="28.0" />
                </font>
@@ -69,7 +69,7 @@
                </font>
             </Label>
             <PasswordField fx:id="verifyfield" layoutX="21.0" layoutY="244.0" prefHeight="26.0" prefWidth="245.0" promptText="Verify your password" />
-            <Button fx:id="signinButtonfield" alignment="CENTER" layoutX="22.0" layoutY="283.0" mnemonicParsing="false" onAction="#SigninButtonOnAction" prefHeight="37.0" prefWidth="243.0" style="-fx-background-color: #28a745;" text="Sign in" textFill="WHITE">
+            <Button fx:id="signinButtonfield" alignment="CENTER" layoutX="22.0" layoutY="283.0" mnemonicParsing="false" onAction="#SigninButtonOnAction" prefHeight="37.0" prefWidth="243.0" style="-fx-background-color: #28a745;" text="Sign up" textFill="WHITE">
                <font>
                   <Font name="Times New Roman Bold" size="13.0" />
                </font>

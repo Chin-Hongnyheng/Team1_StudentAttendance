@@ -85,15 +85,15 @@
                         <Font name="Times New Roman" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="subject" layoutX="26.0" layoutY="91.0" prefHeight="30.0" prefWidth="331.0">
+                  <Label fx:id="subject" alignment="CENTER" layoutX="26.0" layoutY="91.0" prefHeight="30.0" prefWidth="331.0">
                      <font>
                         <Font name="Times New Roman Bold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="date" layoutX="370.0" layoutY="86.0" prefHeight="30.0" prefWidth="198.0">
+                  <Label fx:id="date" alignment="CENTER" layoutX="370.0" layoutY="86.0" prefHeight="30.0" prefWidth="198.0">
                      <font>
                         <Font name="Times New Roman Bold" size="24.0" />
                      </font></Label>
-                  <Label fx:id="teacher" layoutX="683.0" layoutY="84.0" prefHeight="30.0" prefWidth="215.0">
+                  <Label fx:id="teacher" alignment="CENTER" layoutX="683.0" layoutY="84.0" prefHeight="30.0" prefWidth="215.0">
                      <font>
                         <Font name="Times New Roman" size="24.0" />
                      </font></Label>
